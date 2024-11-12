@@ -1,14 +1,13 @@
-#include <util/delay.h>
-#include "adc.h"
-#include "lcdd.h"
-#include <stdlib.h>
+#include <util/delay.h> //including the deley library to allow for delays in the code to create time intervales for the leds and buttons
+#include "adc.h" // including the analog  to digtal converter file 
+#include "lcdd.h" // including the display file 
+#include <stdlib.h> // including this library to be used for conversions 
 
-int main (void) {
-    buttoninit();
-    Adc_Init(); 
-    Uart_Init();
-    LCD_Init();
-    float temperature;
+int main (void) { // this is the begining of the main code
+    buttoninit(); // inisialisation for buttons 
+    Adc_Init();  // insilisation for adc
+    LCD_Init(); // inisilisation for lcd
+    float temperature;  // defiines float variable temperature 
     unsigned short adcsensor;
     unsigned short upper=0;  
     unsigned short lower=0;
