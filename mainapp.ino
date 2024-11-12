@@ -32,9 +32,15 @@ int main (void) { // this is the begining of the main code
 
         if (temperature>=lower && temperature<upper) {
             PORTD=PORTD|(1 <<PD2);  
+            LCD_Command(0x8d);
+            LCD_String("OK");
+
+            
         } 
         else {
             PORTD=PORTD & ~(1<<PD2); 
+            LCD_Command(0x8D);
+            LCD_String("NOK");
         }
 
 
