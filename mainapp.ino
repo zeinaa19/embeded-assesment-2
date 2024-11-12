@@ -10,8 +10,8 @@ int main (void) {
     LCD_Init();
     float temperature;
     unsigned short adcsensor;
-    unsigned short upper=20;  
-    unsigned short lower=30;
+    unsigned short upper=0;  
+    unsigned short lower=0;
     unsigned char buffer[6];
 
     while (1) {
@@ -23,7 +23,7 @@ int main (void) {
         dtostrf(temperature,5,1,buffer);
 
         if (((PINB>>PB4)&1)==0) {
-            lower+=1;
+            lower+=5;
             _delay_ms(200); 
         } 
         if (((PINB>>PB5)&1)==0) {
