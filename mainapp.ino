@@ -8,7 +8,7 @@ int main (void) { // this is the begining of the main code
     Adc_Init();  // insilisation for adc
     LCD_Init(); // inisilisation for lcd
     float temperature;  // defiines float variable temperature 
-    unsigned short adcsensor;
+    unsigned short adcsensor; 
     unsigned short upper=0;  
     unsigned short lower=0;
     unsigned char buffer[6];
