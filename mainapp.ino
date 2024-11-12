@@ -26,7 +26,7 @@ int main (void) { // this is the begining of the main code
             _delay_ms(200); 
         } 
         if (((PINB>>PB5)&1)==0) {
-            upper-=1;
+            upper-=5;
             _delay_ms(200);
         } 
 
