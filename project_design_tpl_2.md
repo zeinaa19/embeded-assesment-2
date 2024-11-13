@@ -117,4 +117,4 @@ Any required hardware/software or system configuration that can be adjusted a he
 |------|-------------|-------------|
 | upper tempereture limit |  0-        | this is the maximum value that the upper temperature limit can be set as|
 | lower tempereture limit |  0-        | this is the maximum value that the lower temperature limit can be set as|
-| baudrate|  9600        | speed of comunication over a data channel |
+
