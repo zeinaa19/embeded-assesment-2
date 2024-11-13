@@ -53,7 +53,7 @@ int main (void) { // this is the bedining of the main code
             LCD_String("OK");     //displays "ok" if the value is in the range
         } 
         else { 
-            PORTD |= (1<<PD0);  //turns off the led if its outside the range 
+            PORTD |= (1<<PD0);  //turns on the led if its outside the range 
             PORTD &= ~(1<<PD2); // this turns off the other les
             LCD_Command(0x8D);    // moves curser to a specified charecter in this case the 14th
             LCD_String("Nok");    //displays "nok" if the value is out of range
