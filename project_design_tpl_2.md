@@ -89,10 +89,10 @@ Typically a module consists of C and H files but other file types may exist. Lis
 | File name | Contents                             |
 |-----------|--------------------------------------|
 | Lcd.h     | lcd header file containing functions |
-| Lcd.ino   | Export Interface file                |
+| Lcd.ino   |                                      |
 | adc.h     | adc header file containing functions |
-| adc.ino   | Import and Module Configuration file |
-|mainapp.ino| includs functions fron other files and is where main code is located |
+| adc.ino   |                                      |
+|mainapp.ino| includs functions from other files and is where main code is located the makes the project function|
 ### Include Structure
 
 If there is a complex file structure e.g. more than one c-file or more than two h-files use a diagram to explain the relationship between the source and dependent include files.
