@@ -59,22 +59,6 @@ rectangle StaticArchi #orange {
 
 ```
 
-### Assumptions & Constraints
-Indicate constraints of the low level design and any assumptions appropriate for the design.
-
-```plantuml
-@startuml
-(*) --> init
---> configure
-if value > 15
-  --> increment value
-  --> (*)
-else
-  --> decrement value
-  --> (*)
-endif
-@enduml
-```
 
 ## Functional Description
 The following chapter describes the software functionality.  The following is a list of suggested sections to be considered for inclusion.
@@ -93,23 +77,7 @@ Typically a module consists of C and H files but other file types may exist. Lis
 | adc.h     | adc header file containing  adc functions |
 | adc.ino   | all adc initlizations and functions included |
 |mainapp.ino| includs functions from other files and is where main code is located the makes the project function|
-### Include Structure
 
-If there is a complex file structure e.g. more than one c-file or more than two h-files use a diagram to explain the relationship between the source and dependent include files.
-
-```plantuml
-@startuml
-package "pkg" {
-    [ABC_Init.c].>[ADC.h] : includes
-    [ABC_Init.c]...>[ABCi.h]
-    [ABC_Task.c]...>[ADC.h]
-    [ABC_Task.c]...>[ABCi.h] : includes
-    interface Interf3
-    note left of ABC_Task.c: A top note
-    ABC_Init.c ..> Interf3 : internal interface
-}
-@enduml
-```
 
 ### Configuration
 Any required hardware/software or system configuration that can be adjusted a header file shall be detailed in this section. This can be placed in the table below.
