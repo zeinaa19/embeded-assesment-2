@@ -32,30 +32,30 @@ int main (void) { // this is the bedining of the main code
         LCD_Clear(); //this comand is to clear the LCD
 
         
-        LCD_Command(0x80); 
+        LCD_Command(0x80); // this begins the display from the top left corner 
         LCD_String("Temp:"); // displays the word "temp"
-        LCD_String(buffer); // displays value stores in the buffer
+        LCD_String(buffer); // displays value stored in the buffer
         LCD_String("C"); // displays degree celsius 
 
         LCD_Command(0xC0); // this command is sued to shift the second row of the lcd
-        LCD_String("L:");
-        itoa(lower,buffer,10); 
-        LCD_String(buffer); 
-        LCD_String("U:"); 
-        itoa(upper,buffer,10); 
-        LCD_String(buffer);
+        LCD_String("L:"); // this displays 'L'
+        itoa(lower,buffer,10); // converts the lover limit value to a string so its able to be displayed on the lcd
+        LCD_String(buffer); // displays value stored in the buffer
+        LCD_String("U:"); // this displays 'U'
+        itoa(upper,buffer,10); //converts the upper limit to a string so its able to be displayed on the lcd
+        LCD_String(buffer); // displays value stored in the buffer
 
        
         if (temperature>=lower&&temperature<upper) { //this checks if the tempereture sensor value is inside the range or not
             PORTD |= (1<<PD2);  // the led turns on if its inside the range
-            PORTD &= ~(1<<PD0); 
-            LCD_Command(0x8E);    
+            PORTD &= ~(1<<PD0); // this turns off the other led
+            LCD_Command(0x8E);   // moves curser to a specified charecter in this case the 15th
             LCD_String("OK");     //displays "ok" if the value is in the range
         } 
         else { 
             PORTD |= (1<<PD0);  //turns off the led if its outside the range 
-            PORTD &= ~(1<<PD2); 
-            LCD_Command(0x8D);    
+            PORTD &= ~(1<<PD2); // this turns off the other les
+            LCD_Command(0x8D);    // moves curser to a specified charecter in this case the 14th
             LCD_String("Nok");    //displays "nok" if the value is out of range
         }
     }
@@ -64,8 +64,8 @@ int main (void) { // this is the bedining of the main code
 }
 
 void buttoninit() { 
-    DDRB = DDRB & ~(1<<PB4);  
-    PORTB = PORTB | (1<<PB4); 
-    DDRB = DDRB & ~(1<<PB5);  
-    PORTB = PORTB | (1<<PB5); 
+    DDRB = DDRB & ~(1<<PB4);  // defines pb4 as an input 
+    PORTB = PORTB | (1<<PB4); // enables the internal pull up resistor 
+    DDRB = DDRB & ~(1<<PB5);  //define pb5 as an input 
+    PORTB = PORTB | (1<<PB5); // enables internal pull up resistor 
 }
