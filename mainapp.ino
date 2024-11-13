@@ -34,16 +34,16 @@ int main (void) { // this is the bedining of the main code
         
         LCD_Command(0x80); // this begins the display from the top left corner 
         LCD_String("Temp:"); // displays the word "temp"
-        LCD_String(buffer); // displays value stored in the buffer
+        LCD_String(buffer); // displays value stored in the buffer for temp
         LCD_String("C"); // displays degree celsius 
 
         LCD_Command(0xC0); // this command is sued to shift the second row of the lcd
         LCD_String("L:"); // this displays 'L'
         itoa(lower,buffer,10); // converts the lover limit value to a string so its able to be displayed on the lcd
-        LCD_String(buffer); // displays value stored in the buffer
+        LCD_String(buffer); // displays value stored in the buffer for lover limit
         LCD_String("U:"); // this displays 'U'
         itoa(upper,buffer,10); //converts the upper limit to a string so its able to be displayed on the lcd
-        LCD_String(buffer); // displays value stored in the buffer
+        LCD_String(buffer); // displays value stored in the buffer for upper limit
 
        
         if (temperature>=lower&&temperature<upper) { //this checks if the tempereture sensor value is inside the range or not
