@@ -88,10 +88,10 @@ Typically a module consists of C and H files but other file types may exist. Lis
 
 | File name | Contents                             |
 |-----------|--------------------------------------|
-| Lcd.h     | lcd header file containing functions |
-| Lcd.ino   |                                      |
-| adc.h     | adc header file containing functions |
-| adc.ino   |                                      |
+| Lcd.h     | lcd header file containing lcd functions |
+| Lcd.ino   | all lcd initlizations and functions included                                     |
+| adc.h     | adc header file containing  adc functions |
+| adc.ino   | all adc initlizations and functions included |
 |mainapp.ino| includs functions from other files and is where main code is located the makes the project function|
 ### Include Structure
 
