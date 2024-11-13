@@ -1,6 +1,6 @@
 #include <avr/io.h>			  /* Include AVR std. library file */
 #include <util/delay.h>	  /* Include Delay header file */
-#include "LCD.h"
+#include "lcdd.h"
 #if !defined(_AVR_ATmega328P_)
 #include <avr/iom328p.h>
 #endif
