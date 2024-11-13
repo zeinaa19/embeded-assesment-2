@@ -1,29 +1,29 @@
-#include <avr/io.h>			  
-#include <util/delay.h>	  
-#include "LCD.h"
+#include <avr/io.h>	// includes the avr library file 		  
+#include <util/delay.h>	  // includes the delay library
+#include "lcdd.h" // includes lcd header 
 #if !defined(_AVR_ATmega328P_)
 #include <avr/iom328p.h>
 #endif
 
-#define LCD_Dir  DDRD			
-#define LCD_Port PORTD		
+#define LCD_Dir  DDRD	 //defines the data port direction 	 
+#define LCD_Port PORTD		// defines the lcd data port 
 
-#define RS_EN_Dir  DDRB	
-#define RS_EN_Port PORTB  
-#define RS PB0				   
-#define EN PB1 				    
+#define RS_EN_Dir  DDRB	//this defines the RS and the En data port direction 
+#define RS_EN_Port PORTB  // this defines the RS and and En port 
+#define RS PB0		// defines register select pin 	   
+#define EN PB1 	 	// defines the enable signal pin
 
 void LCD_Command( unsigned char cmnd )
 {
-	LCD_Port = (LCD_Port & 0x0F) | (cmnd & 0xF0); 
-	RS_EN_Port &= ~ (1<<RS);		
-	RS_EN_Port |= (1<<EN);		
+	LCD_Port = (LCD_Port & 0x0F) | (cmnd & 0xF0); //sends the upper nibble 
+	RS_EN_Port &= ~ (1<<RS);	// Rs = 0, command reg	
+	RS_EN_Port |= (1<<EN);		// enables puls 
 	_delay_us(1);
 	RS_EN_Port &= ~ (1<<EN);
 
 	_delay_us(200);
 
-	LCD_Port = (LCD_Port & 0x0F) | (cmnd << 4);  
+	LCD_Port = (LCD_Port & 0x0F) | (cmnd << 4);  //sends lower nibble 
 	RS_EN_Port |= (1<<EN);
 	_delay_us(1);
 	RS_EN_Port &= ~ (1<<EN);
@@ -33,8 +33,8 @@ void LCD_Command( unsigned char cmnd )
 
 void LCD_Char( unsigned char data )
 {
-	LCD_Port = (LCD_Port & 0x0F) | (data & 0xF0); 
-	RS_EN_Port |= (1<<RS);		
+	LCD_Port = (LCD_Port & 0x0F) | (data & 0xF0); //sending upper nibble 
+	RS_EN_Port |= (1<<RS);		//Rs = 1 data 
 	RS_EN_Port|= (1<<EN);
 	_delay_us(1);
 	RS_EN_Port &= ~ (1<<EN);
