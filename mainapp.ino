@@ -29,18 +29,23 @@ int main (void) { // this is the begining of the main code
             upper-=5; // if button is pressed the upper limit increases by 5
             _delay_ms(200);
         } 
+        if (((PIND>>PD0)&1)==0) {
+            upper=0; // if the button is pressed the upper limit resets to 0
+            lower=0; // if the button is pressed the lower limit resets to 0 
+            _delay_ms(200);
+        } 
 
         if (temperature>=lower && temperature<upper) { // this checks if the temperature sensor value is inside the range or not
             PORTD=PORTD|(1 <<PD2);  // the LED turns on if its inside the range
-            LCD_Command(0x8D); // this command is used to move the curser to a specific character (character 14)
-            LCD_String("OK"); // displays "ok" if the value is in the range
+            LCD_Command(0x8D); //This command is used to move the cursor to a specific character (character 14)
+            LCD_String("oK"); // displays "ok" if the value is in the range
 
             
         } 
         else { 
             PORTD=PORTD & ~(1<<PD2); // turns off the LED if its outside the range
             LCD_Command(0x8D);
-            LCD_String("NOK");
+            LCD_String("Nok");
         }
 
 
@@ -67,5 +72,7 @@ void buttoninit(){
     DDRB=DDRB & ~(1<<PB4); // define pb4 as an input  
     PORTB=PORTB | (1<<PB4); // enables the internal pullup resistor in pb4
     DDRB=DDRB & ~(1<<PB5);  // define pb5 as an input  
-    PORTB=PORTB | (1s<<PB5); // enables the internal pullup resistor in pb5
+    PORTB=PORTB | (1<<PB5); // enables the internal pullup resistor in pb5
+    DDRD=DDRD & ~(1<<PD0);  // define pd0 as an input  
+    PORTD=PORTD | (1<<PD0); // enables the internal pullup resistor in pd0
 }
