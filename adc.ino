@@ -22,3 +22,4 @@ unsigned short Adc_ReadChannel(unsigned char ch)
   while(ADCSRA & (1<<ADSC));
  
   return (ADC);
+}
