@@ -3,7 +3,7 @@
 | **Author**              | `Zeina mohamed elfar & Jumana mohamed hamed`                                       |
 |:------------------------|:-----------------------------------------------------|
 | **Status**              | `Approved`                          |
-| **Version**             | `2.0`                                                |
+| **Version**             | `1.0`                                                |
 | **Date**                | `13/11/2024`                                         |
 
 ## Introduction
@@ -115,6 +115,6 @@ package "pkg" {
 Any required hardware/software or system configuration that can be adjusted a header file shall be detailed in this section. This can be placed in the table below.
 | Name | Value range | Description |
 |------|-------------|-------------|
-| upper tempereture limit |  0-        | this is the maximum value that the upper temperature limit can be set as|
-| lower tempereture limit |  0-        | this is the maximum value that the lower temperature limit can be set as|
+| upper tempereture limit |  0- infinite but limited by free charecter spaces on the lcd | this is the maximum value that the upper temperature limit can be set as|
+| lower tempereture limit |  0- infinite but limited by free charecter spaces on the lcd    | this is the maximum value that the lower temperature limit can be set as|
 
