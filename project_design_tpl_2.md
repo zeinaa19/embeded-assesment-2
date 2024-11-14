@@ -64,7 +64,7 @@ LCD Display Functions: Shows the sensor type, current reading, and threshold lim
 This circuit uses Arduino to portray analog to digital conversion and the displays the digital signals then on the LCD, the circuit uses an LM35 temperature sensor and an LCD screen, buttons and LEDs. The LEDs are used as indicators on if the limits are in range or not and indicators for the main handwear components. The Arduino processes the LM35s anolog value input signal and this digital reading and user set limits are shown on the 16x2 LCD display screen almost immediately. The system is constantly reading the LM35s output and checks if the value is within the limit using the ADC. This system is close to simulating real world control systems in a system where the weather is controlled, such as an AC system. the whole system created would be very useful in an AC system. The temperature sensor would be very useful for to be used as a method of determining if the surrounding temperatures within the limit that the user has set. If the user sets that the AC provide a required temperature of 25 degrees, then the temperature sensor will check the existing temperature compared to the limit that the user has send and adjust accordingly. 
 
 ## assignment fowchart
-'''
+```plantuml
 @startuml
 start
 
@@ -97,7 +97,9 @@ repeat while (true?)
 ->no;
 stop
 @enduml
-'''
+
+```
+
 
 ## Integration and Configuration
 ### Static Files
