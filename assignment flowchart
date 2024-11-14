@@ -1,0 +1,36 @@
+## assignment fowchart
+```plantuml
+@startuml
+start
+
+:initialize_system;
+repeat
+if (temp_within_limit) then (yes)
+  :write_to_uart "ok";
+endif
+if (temp_not_within_limit) then (yes)
+  :write_to_uart "nok";
+endif
+if (temp_within_limit "led on") then (yes)
+  :turn on yellow_led;
+endif
+if (temp_within_limit "led off") then (yes)
+  :turn off red_led;
+endif
+if (temp_not_within_limit "led on") then (yes)
+  :turn on red_led;
+endif
+if (temp_not_within_limit "led off") then (yes)
+  :turn on yellow_led;
+
+
+else (nothing)
+
+endif
+
+repeat while (true?)
+->no;
+stop
+@enduml
+
+```
