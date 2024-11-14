@@ -8,53 +8,44 @@
 
 ## Introduction
 
-Provide an overview of the entire document:
+This report explains how to build a simple 16x2 LCD screen system that shows temperature readings from a sensor. Users can set high and low temperature limits using pushbuttons, and an LED light turns on when the temperature is within this desired range, and a second led will turn on when the temperature is out of range. These act as indicators on if the conditions are met and therefore normal or not. The system uses an ADC to read the temperature, and the software, written in C, controls how the data is shown on the screen and responds to the button inputs. Included in the project is a bill of materials, including an optimised one, a circuit diagram, code details, along with test cases to show how it works. A video is also provided to thoroughly explain the aim of the project, the circuit components and connections, the code, and to show the project as it is functioning.
 
-* Identify the system/product using any applicable names and/or version numbers.
+
 
 ### Purpose
 This low-level design specification describes the internal structure and the functions of the software module. It describes the interaction, data structures, specific embedded constraints and background information about design. This specification is the basis for coding and is an input document for the corresponding module test specification. The terms Low-level design specification and module specification are used interchangeably in Valeo to refer to documents of this type.
 
 ### Scope
-Explanation:-
-* Give information on project context, where this document applies.
-* Also a reference for more project information can be given.
-* Classification for P2, P1, and P0. shall be given.
+For this project, a circuit was conduct that consists of an LCD, Arduino board, LEDs, resistors, pushbuttons, and an LM35 temperature sensor. The code is written to conduct the following functions. Once the code is run the functionality of the circuit is as follows. Firstly The temperature sensor will detect the temperature of the surrounding climate, this temperature will then be displayed on to the LCD. on the LCD the upper and lower limits will also be displayed, as well as the words ‘ok’ or ‘Nok’ depending on if the temperature is in range or not. To start off with, once the code is first run, the lower and upper limits are not set, therefore the to begin with the LED is out of range, so ‘Nok’ is displayed on the screen and the red LED is turned on, if the temperature is in range of the upper and lower limit then the yellow LED will be turned on and the LCD will display ‘ok’. There are two push buttons within the circuit to control the upper and lower limits. By pressing the buttons the lower and upper limits are increase by increments of 5, this allows the user to control the upper and lower limits as they wish. There is also a button on the LCD that resets the power to the system. The user can then press this button and by resetting the power in the system the upper and lower limits will then automatically reset. 
 
 ### Defnitions and Acronym
 | **Abbreviation** |             **Meaning**             |
 |:----------------:|:-----------------------------------:|
-|      (RT)OS      |    (Real-Time) Operating System     |
-|       API        |    Application Program Interface    |
-|       CDD        |      Component Design Document      |
-|       HWI        |         HardWare Interfaces         |
-|       NVM        |         Non Volatile Memory         |
-|       SRS        | Software Requirements Specification |
+|     ADC          |   Anolog to digital converter       |
+|     LDC          |  liquid crystal display             |
+|     LED          |  light emittig diode                |
+|     LM35         |  temp measuring device wiht an anolog output of voltage proportional to the temp|          |
 
 ## Architectural Overview
 
 This section describes where this module resides in the context of the software architecture
 ```plantuml
 @startuml
-rectangle StaticArchi #orange {
-    rectangle System #orange {
-        rectangle EcuM
-        rectangle BAT
-        rectangle VEM
-        rectangle WdgM
-    }
-    rectangle Config #lightgreen {
-        rectangle CAR #lightgreen
-        rectangle CFG #lightgreen
-    }
-
-    rectangle BSW_Abstraction_Layer #skyblue {
-            rectangle IPC
-            rectangle DMA
-            rectangle DSI
-            rectangle FSM
-    }
+node "MainAPP" {   
 }
+node "ADC"{
+}
+node "LCD"{
+}
+node "Mircocontroller"{
+}
+
+MainAPP --> Mircocontroller
+MainAPP <-- LCD
+MainAPP <-- ADC
+LCD --> Mircocontroller
+ADC --> Mircocontroller
+MainAPP <-- Mircocontroller
 @enduml
 
 ```
