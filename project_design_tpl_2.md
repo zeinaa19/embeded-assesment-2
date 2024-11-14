@@ -53,10 +53,13 @@ MainAPP <-- Mircocontroller
 
 
 ## Functional Description
-The lcd and ADC interfaces read analog values that are obtained from the sensors that are connected to specific ADC channels. The data obtained is the sampled and displayed on the LCD. the limit values for the upper and lower temperature limits are set using push buttons and this sends data to an external monitor in real time.
+The code uses the values of the analog sensor, this value is then compared to an upper and lower limit that is set using two push buttons, and the results are then set on the LCD screen. The LCD and ADC interfaces read analog values that are obtained from the sensors that connected to the ADC channels. That data obtained is then samples and displayed on the LCD. The limit values for the upper and lower temperature limits are set as said before using push buttons and this sends the data to an external monitor in real time. The code sets the LCD and ADC modules and their starting values for the limits and the pins are al set as inputs and the pull up resistors for the buttons. When looking at the sensor, it can be explained as the following, the code reads the values from the ADC and then takes it and turns it into a string and this is how the values are able to be shown on the LCD. depending on if the code detects if the value from the temperature sensor is within range or not it will display ‘ok’ or ‘nok’ on the LCD.
 
 ## Implementation of the Module
-This chapter discusses the detailed design of the module.
+
+ADC Initialization: Sets up the ADC for the designated channels.
+LCD Display Functions: Shows the sensor type, current reading, and threshold limits.
+
 
 ## Integration and Configuration
 ### Static Files
