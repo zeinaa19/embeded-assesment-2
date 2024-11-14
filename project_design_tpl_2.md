@@ -50,7 +50,26 @@ MainAPP <-- Mircocontroller
 @enduml
 
 ```
+### Assumptions & Constraints
 
+```plantuml
+@startuml
+(*) --> initialization
+--> configuration
+if upperlimit >value > lowerlimit 
+  --> display on lcd "OK"
+  --> yellow LED turns on 
+  --> red LED turns off
+  --> (*)
+else
+  --> red LED turns on
+  --> display on lcd "NOK"
+  --> yellow LED turns off
+--> (*)
+  
+endif
+@enduml
+```
 
 ## Functional Description
 The code uses the values of the analog sensor, this value is then compared to an upper and lower limit that is set using two push buttons, and the results are then set on the LCD screen. The LCD and ADC interfaces read analog values that are obtained from the sensors that connected to the ADC channels. That data obtained is then samples and displayed on the LCD. The limit values for the upper and lower temperature limits are set as said before using push buttons and this sends the data to an external monitor in real time. The code sets the LCD and ADC modules and their starting values for the limits and the pins are al set as inputs and the pull up resistors for the buttons. When looking at the sensor, it can be explained as the following, the code reads the values from the ADC and then takes it and turns it into a string and this is how the values are able to be shown on the LCD. depending on if the code detects if the value from the temperature sensor is within range or not it will display ‘ok’ or ‘nok’ on the LCD.
@@ -113,7 +132,20 @@ stop
 | adc.ino   | all adc initialization and functions included |
 |mainapp.ino| includes functions from other files and is where the main code is located the makes the project function|
 
+### Include Structure
 
+```plantuml
+@startuml
+package "pkg" {
+    [adc.ino].>[adc.h] : includes
+    [Lcd.ino]...>[Lcd.h] : includes
+  
+    interface Interf3
+    note left of Lcd.ino: A top note
+    adc.ino ..> Interf3 : internal interface
+}
+@enduml
+```
 ### Configuration
 
 | Name | Value range | Description |
