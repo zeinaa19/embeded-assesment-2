@@ -60,7 +60,7 @@ This chapter discusses the detailed design of the module.
 
 ## Integration and Configuration
 ### Static Files
-Typically a module consists of C and H files but other file types may exist. List all files that form this module
+
 
 | File name | Contents                             |
 |-----------|--------------------------------------|
@@ -72,7 +72,7 @@ Typically a module consists of C and H files but other file types may exist. Lis
 
 
 ### Configuration
-Any required hardware/software or system configuration that can be adjusted in a header file shall be detailed in this section. This can be placed in the table below.
+
 | Name | Value range | Description |
 |------|-------------|-------------|
 | upper temperature limit |  0- infinite but limited by free character spaces on the LCD | This is the  maximum and minimum value range that the upper temperature limit can be set as|
